@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jquery basic</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+
+<body>
+
+<!-- 1. keyboard keydown trigger key-code.
+	2. find audio tag attribute where data-key-code == key-code. this audio tag play.
+ -->
+
+<div id="band_btn">
+	<div id="part-one">
+		<button data-src="audio/Cymatics - Dubstep Kick 1.wav" data-key="81">Q</button>
+		<button data-src="audio/basic-clap.wav" data-key="87">W</button>
+		<button data-src="audio/basic-perc.wav" data-key="69">E</button>
+		<button data-src="audio/Fire Clap.wav" data-key="82">R</button>
+		<button data-src="audio/ok-hihat.wav" data-key="84">T</button>
+		<button data-src="audio/Cymatics - Dubstep Kick 5.wav" data-key="89">Y</button>
+		<button data-src="audio/Cymatics - House Kick 1.wav" data-key="85">U</button>
+		<button data-src="audio/icytwat-hat.wav" data-key="73">I</button>
+		<button data-src="audio/Cymatics - House Kick 10.wav" data-key="79">O</button>
+		<button data-src="audio/ok-hihat.wav" data-key="80">P</button>
+	</div>
+	<div id="part-two">
+		<button data-src="audio/audio3/Claps/Regular clean clap.wav" data-key="65">A</button>		
+		<button data-src="audio/audio3/Hats/bighead hat 2.wav" data-key="83">S</button>		
+		<button data-src="audio/Cymatics - Dubstep Kick 3.wav" data-key="68">D</button>		
+		<button data-src="audio/Cymatics - Dubstep Kick 4.wav" data-key="70">F</button>		
+		<button data-src="audio/Cymatics - Dubstep Kick 5.wav" data-key="71">G</button>		
+		<button data-src="audio/Cymatics - House Kick 1.wav" data-key="72">H</button>		
+		<button data-src="audio/Cymatics - Dubstep Kick 2.wav" data-key="74">J</button>		
+		<button data-src="audio/Fire Clap.wav" data-key="75">K</button>		
+		<button data-src="audio/basic-clap.wav" data-key="76">L</button>		
+	</div>
+	<div id="part-three">
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="90">Z</button>		
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="88">X</button>		
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="67">C</button>		
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="86">V</button>		
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="66">B</button>		
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="78">N</button>		
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="77">M</button>		
+	</div>
+	<div id="part-four">
+		<button data-src="audio/audio3/Snares/Use This.wav" data-key="32"></button>		
+	</div>
+</div>
+
+
+
+<audio id="myAudio">
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+</audio>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+$("button").click(function(){
+	var x = document.getElementById("myAudio"); 
+	var current_sound = $(this).attr("data-src");
+		document.getElementById("myAudio").volume = 0.4;
+
+	$("#myAudio").children("source").attr("src", current_sound);
+
+	var main_sound = $("#myAudio").children("source").attr("src");
+
+	if ( current_sound == main_sound ) {
+		x.load();
+		x.play();
+	}
+
+});
+
+$(window).keydown(function(e){
+	$("#band_btn").find("button").removeClass("current");
+	var current_sound = $('button[data-key="'+ e.keyCode +'"]').click().addClass("current")
+});
+
+</script>
+
+</body>
+</html>

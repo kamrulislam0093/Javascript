@@ -1,0 +1,48 @@
+body {
+    background-image: url(Images/bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 100vh;
+		margin: 0;
+}
+#band_btn {
+    width: 80%;
+    margin: auto;
+    padding-top: 5.5em;
+}
+#band_btn button {
+    font-size: 30px;
+    padding: 10px 48px;
+    margin: 9px;
+    color: #fff;
+    box-shadow: 0 0px 6px 5px #616161;
+    background: none;
+}
+#part-two button {
+    padding: 10px 48px;
+    margin: 20px 11px;
+}
+#part-three {
+    margin-left: 9.5em;
+}
+#part-two {
+    margin-left: 4em;
+}
+#part-four button {
+    width: 59%;
+    margin-left: 15%;
+    padding: 25px 0;
+}
+#band_btn button.current {
+    border-color: #3785c2;
+}
+
+/*#band_btn button:focus {
+    border: none;
+    box-shadow: inset 0 1px 9px 3px #626262, 0 1px 9px 3px #626262;
+    padding: 13px 57px;
+    margin: 9px;
+    color: #fff;
+    background: inherit;
+}*/

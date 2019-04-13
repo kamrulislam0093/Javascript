@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jquery basic</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
+
+<body>
+
+
+  <div class="main">
+    <div class="row view">
+      <div class="image col-xs-6 col-md-4 col-lg-4">
+        <a href="#"><img src="Images/1.jpg" ></a>
+        <div id="overlay" class="one">
+        	<span>Project Name</span>
+        </div>
+      </div>
+      <div class="image col-xs-6 col-md-4 col-lg-4">
+        <a href="#"><img src="Images/2.jpg" ></a>  
+        <div id="overlay" class="two">
+        	<span>Project Name</span>
+        </div>                      
+      </div>
+      <div class="image col-xs-6 col-md-4 col-lg-4">
+        <a href="#"><img src="Images/3.jpg"></a> 
+        <div id="overlay" class="three">
+        	<span>Project Name</span>
+        </div>                         
+      </div>
+      <div class="image col-xs-6 col-md-4 col-lg-4">
+        <a href="#"><img src="Images/4.jpg"></a>
+        <div id="overlay"  class="four">
+        	<span>Project Name</span>
+        </div>              
+      </div>
+      <div class="image col-xs-6 col-md-4 col-lg-4">
+        <a href="#"><img src="Images/5.jpg"></a>            
+        <div id="overlay"  class="five">
+        	<span>Project Name</span>
+        </div>              
+      </div>
+      <div class="image col-xs-6 col-md-4 col-lg-4">
+        <a href="#"><img src="Images/6.jpg"></a>    
+        <div id="overlay"  class="six">
+        	<span>Project Name</span>
+        </div>                      
+      </div>
+     </div>
+		</div>
+
+      <div id="out_viewer">
+        <div id="img_view">
+            <span id="prev">&ltrif;</span>
+            <span id="next">&rtrif;</span>
+            <ul id="viewer_img">
+              <li><img src="Images/1.jpg"></li>
+              <li><img src="Images/2.jpg"></li>
+              <li><img src="Images/3.jpg"></li>
+              <li><img src="Images/4.jpg"></li>
+              <li><img src="Images/5.jpg"></li>
+              <li><img src="Images/6.jpg"></li>
+            </ul>         
+        </div>
+        <span id="img_view_close">&Cross;</span>
+      </div>
+
+
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript">
+      $(".one").click(function(){
+        $("#viewer_img").css("margin-left", 0);
+        currentPosition = 1;
+      })
+
+      $(".two").click(function(){
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", -document_width);
+        currentPosition = 2;
+      })
+
+      $(".three").click(function(){
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", -document_width * 2);
+        currentPosition = 3;
+      })
+
+      $(".four").click(function(){
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", -document_width * 3);
+        currentPosition = 4;
+      })
+
+      $(".five").click(function(){
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", -document_width * 4);
+        currentPosition = 5;
+      })
+
+      $(".six").click(function(){
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", -document_width * 5);
+        currentPosition = 6;
+      })
+
+			$(".view #overlay").on ('click', function(){
+				var view_img = $(this).prev().children("img").attr("src")
+				$("#img_view").children("img").attr("src", view_img);
+        $("#img_view").show();
+        setTimeout(function(){ $("#img_view_close").show() }, 1500);
+        var window_width = $(document).width() - 280
+        var height = $(window).height() - 100;
+        $("#viewer_img li").css("width", window_width);
+        $("#viewer_img li").css("height", height);
+  		});
+
+      var currentPosition = 1;
+      var img_length = $("#viewer_img").children().length;
+      $("#next").click(function(){
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", '-='+document_width);
+        currentPosition++;
+        console.log(currentPosition);
+        console.log(img_length);
+        if (currentPosition >= img_length) {
+          $("#viewer_img").css("margin-left", 0);
+           currentPosition = 1;
+        }
+       
+      });
+
+
+      $("#prev").click(function(){
+         var img_length = $("#viewer_img").children().length;
+        var document_width = $(window).width() + 24;
+        $("#viewer_img").css("margin-left", '+='+document_width );
+        currentPosition--;
+        console.log(currentPosition);
+        console.log(img_length);
+        if (currentPosition == 0) {
+          $("#viewer_img").css("margin-left", -document_width * 5);
+           currentPosition = img_length;
+        }
+       
+      });
+
+      $("#img_view_close").click(function(){
+        $("#img_view").hide();
+        $(this).hide();
+      });
+
+	</script>
+</body>
+</html>
