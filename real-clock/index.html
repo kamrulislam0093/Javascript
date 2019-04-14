@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Classic Watch</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+<link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+
+<body>
+
+<div id="container">
+	<div id="main">
+		<div id="second_stick"></div>
+		<div id="minute_stick"></div>
+		<div id="hour_stick"></div>
+		<div id="time"><span id="day">Sun</span>|<span id="date">1</span></div>
+		<div id="second_view">
+			<div id="one"></div>
+			<div id="five"></div>
+			<div id="ten"></div>
+
+			<div id="fifteen"></div>
+			<div id="twenty"></div>
+			<div id="twenty-five"></div>
+
+			<div id="thirty"></div>
+			<div id="thirty-five"></div>
+			<div id="fourty"></div>
+
+			<div id="fourty_five"></div>
+			<div id="fifty"></div>
+			<div id="fifty-five"></div>
+		</div>
+		<div id="under-border">
+			<div id="hour">
+				<div id="hour_twenty">12</div>
+				<div id="hour_one">1</div>
+				<div id="hour_two">2</div>
+				<div id="hour_three">3</div>
+				<div id="hour_four">4</div>
+				<div id="hour_five">5</div>
+				<div id="hour_six">6</div>
+				<div id="hour_seven">7</div>
+				<div id="hour_eight">8</div>
+				<div id="hour_nine">9</div>
+				<div id="hour_ten">10</div>
+				<div id="hour_eleven">11</div>
+			</div>
+		</div>
+		<div id="inside-text">
+			<h2>seiko</h2>
+			<p>automatic</p>
+			<p>21 jewels</p>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	function watch_time(){
+		var second_element = $("#second_stick");
+		var minute_element = $("#minute_stick");
+		var hour_element = $("#hour_stick");
+
+		var current_date = new Date();
+		var current_second = current_date.getSeconds() + 1;
+		var current_Minute = current_date.getMinutes();
+		var current_hour = current_date.getHours();
+
+	// Second trigger
+		var original_second = (current_second / 60)*360 + 90;
+		second_element.css("transform", 'rotate('+original_second+'deg)');
+
+	// Minutes trigger
+		var original_minute = (current_Minute / 60)*360 + 90;
+		minute_element.css("transform", 'rotate('+original_minute+'deg)');
+
+	// Hour trigger
+		var original_hour = (current_hour / 12)*360 + 90;
+		hour_element.css("transform", 'rotate('+original_hour+'deg)');
+	}
+
+	setInterval(watch_time, 1000);
+
+
+	var current_day = new Date();
+
+// Current Day Name
+	function now_day(){
+			var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	    var result = days[current_day.getDay()].substring(0, 3).toUpperCase();
+	    $("#day").html(result);
+	}
+	now_day();
+// Current Day Name
+
+// Current Date 	
+	function now_date(){
+		var results = current_day.getDate();
+		$("#date").html(results);
+	}
+	now_date();
+
+// Current Date
+
+
+
+
+
+
+
+});
+
+</script>
+
+
+
+
+
+</body>
+</html>
