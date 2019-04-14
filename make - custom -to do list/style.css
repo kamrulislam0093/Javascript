@@ -1,0 +1,75 @@
+	body {
+		background-color: #E0E3E8;
+		margin:0;
+	}
+#list {
+    width: 50%;
+margin: auto;
+    margin-top: auto;
+margin-top: 45px
+
+}
+#add {
+background: red;
+padding: 28px;
+margin: 0;
+text-align: center;
+
+}
+#add h1 {
+color: #fff;
+margin: 0 0 11px 0;
+
+}
+#add #list_add {
+width: 70%;
+padding: 7px 2.5%;
+border: none;
+color: #000;
+border-radius: 3px 0 0 4px;
+
+}
+#add #add_btn {
+width: 24%;
+border: none;
+padding: 7px 0px;
+margin-left: -5px;
+background: #E1E1E1;
+border-left: 1px solid #eee;
+box-sizing: border-box;
+cursor: pointer;
+}
+#add #add_btn:hover {
+    background-color: #C3C3C3;
+}
+#list_item {
+
+}
+#list_item #item {
+margin: 0;
+list-style: none;
+padding: 0;
+
+}
+#list_item ul li:nth-child(odd) {
+background-color: #c9c9c9;
+
+}
+
+#list_item #item li {
+border: 1px solid #bebcbc;
+    padding: 9px 13px;
+    position: relative;
+}
+#list_item #item li span {
+position: absolute;
+right: 0;
+font-size: 30px;
+top: -1px;
+padding: 4px 10px 1px 10px;
+cursor: pointer;
+}
+#list_item #item li span:hover {
+background-color: #000;
+color:#fff;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jquery basic</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+
+<body>
+
+<div id="list">
+	<div id="add">
+		<h1>My to Do List</h1>
+		<input type="text" id="list_add" placeholder="Title..." >
+		<button id="add_btn">add</button>
+	</div>
+
+	<div id="list_item">
+		<ul id="item">
+			<li>Hi the gyn <span class="close">&times;</span></li>
+			<li>Hi the gyn <span class="close">&times;</span></li>
+			<li>Hi the gyn <span class="close">&times;</span></li>
+			<li>Hi the gyn <span class="close">&times;</span></li>
+			<li>Hi the gyn <span class="close">&times;</span></li>
+			<li>Hi the gyn <span class="close">&times;</span></li>
+
+		</ul>
+	</div>
+</div>
+
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript">
+$(function(){
+	$("#add_btn").click(function(){
+		var text = $("#list_add").val();
+
+		// var create_element = $("li></li>").text(text);
+
+		// var close = $(".close");
+
+		if (text === "") {
+			alert("Please Fill up word")
+		}
+		else {
+			// $("#item").append(create_element );
+			// .append(close);
+			$("#list_add").val("");
+			// console.log(	 );
+
+			$("#item").append( "<li>" + text + "<span class=\"close\">&times;</span></li>" );
+		}
+	});
+
+
+	// $(".close").click(function(){
+	// $(".close").on("click", function(){
+		
+	// });
+
+
+	$("#item").on("click", ".close", function(){
+		$(this).closest("li").fadeOut();
+	});
+
+})
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jquery basic</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="style - Copy.css" media="all">
+
+<body>
+<div id="Input_add_box">
+	<div id="heading">
+		<h1>Set Input Field</h1>
+	</div>
+
+	<div id="input">
+		<input type="text" placeholder="text...">
+		<input type="text" placeholder="text...">
+		<input type="text" placeholder="text...">
+		<input type="text" placeholder="text...">
+		<input type="text" placeholder="text...">
+
+	</div>
+	<div id="plue">
+		<span>+</span>
+	</div>
+</div>
+
+
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript">
+
+$(function(){
+	$("#plue").click(function(){
+		var input_add = $('<input type="text" placeholder="text..."/>');
+		$("#input").append(input_add);
+		// console.log(input_add);
+	});
+});
+
+
+
+// $("#add_btn").click(function(){
+// 		var text = $("#list_add").val();
+// 		var create_element = $("<li></li>").text(text);
+// 		if (text === "") {
+// 			alert("Please Fill up word")
+// 		}
+// 		else {
+// 			$("#item").append(create_element);
+// 			$("#list_add").val("")
+// 		}
+		
+
+// 	// 	if (true) {}
+// 	// 		console.log(create_element);
+// 	});
+
+
+	</script>
+</body>
+</html>
