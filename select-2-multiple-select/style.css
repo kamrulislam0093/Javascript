@@ -1,0 +1,44 @@
+#body {
+  margin: 74px auto 0 auto;
+  width: 209px;
+  position: relative;
+
+}
+#two {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.js-example-basic-multiple {
+	display: none;
+}
+.js-example-basic-multiple > option {
+    font-size: 14px;
+    padding: 3px 10px;
+    border: 1px solid #aaa4a4;
+    background-color: #989797;
+    cursor: pointer;
+    color: #fff;
+}
+.js-example-basic-multiple > option:hover {
+    border: 1px solid #ababab;
+    background-color: #ababab;
+}
+
+.js-example-basic-multiple {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 35px;
+}
+
+.js-example-basic-multiple > option:first-child {
+    border-top: none;
+}
+ .js-example-basic-multiple > option:last-child {
+    border-bottom: none;
+}
+
+
+
